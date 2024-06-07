@@ -1,4 +1,3 @@
-import { ThemedText } from '@/components/ThemedText'
 import { ThemedView } from '@/components/ThemedView'
 import ComplaintForm from '@/components/complaints/form'
 import React from 'react'
