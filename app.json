@@ -31,6 +31,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "ef6031d1-e4f7-4646-9f00-ccd1ce23c12f"
+      }
+    },
+    "owner": "nekan"
   }
 }
