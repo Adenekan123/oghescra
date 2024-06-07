@@ -1,9 +1,13 @@
 import { ThemedText } from '@/components/ThemedText'
+import { ThemedView } from '@/components/ThemedView'
+import ComplaintForm from '@/components/complaints/form'
 import React from 'react'
 
 const Complaints = () => {
   return (
-    <ThemedText>Complaints</ThemedText>
+    <ThemedView style={{flex:1, justifyContent:"center",padding:16}}>
+      <ComplaintForm/>
+    </ThemedView>
   )
 }
 
