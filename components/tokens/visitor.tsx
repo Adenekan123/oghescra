@@ -20,7 +20,8 @@ const Visitor = ({ visitor }: { visitor: IVisitor }) => {
         backgroundColor: "#fff",
         paddingHorizontal: 8,
         paddingVertical: 12,
-        marginVertical:6
+        marginVertical:6,
+        borderRadius:8
       }}
     >
       <ThemedView

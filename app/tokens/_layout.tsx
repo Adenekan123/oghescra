@@ -24,16 +24,23 @@ export default function RootLayout() {
           title: "Tokens",
           headerRight: () => (
             <Link href={"tokens/new"} asChild>
-              <Pressable style={{ backgroundColor: "#fff" }}>
-                <Ionicons name="add" size={20} />
+              <Pressable
+                style={{
+                  backgroundColor: "#fff",
+                  borderRadius: 8,
+                  paddingHorizontal: 8,
+                  paddingVertical:4
+                }}
+              >
+                <Ionicons name="add" size={24} />
               </Pressable>
             </Link>
           ),
-          headerLeft:()=>(
-              <Pressable onPress={()=> router.push("/")}>
-                <Ionicons name="arrow-back" size={22} color={"#fff"} />
-              </Pressable>
-          )
+          headerLeft: () => (
+            <Pressable onPress={() => router.push("/")}>
+              <Ionicons name="arrow-back" size={22} color={"#fff"} />
+            </Pressable>
+          ),
         }}
       />
       <Stack.Screen name="new" options={{ title: "Generate Token" }} />

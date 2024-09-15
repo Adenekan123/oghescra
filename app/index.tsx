@@ -19,22 +19,55 @@ export default function Index() {
       }}
     >
       <Pressable
+        onPress={() => router.navigate("outstandings")}
+        style={{
+          flex: 1,
+          alignItems: "center",
+          backgroundColor: Colors.light.tint,
+          padding: 20,
+          rowGap: 16,
+          borderRadius: 16,
+          flexBasis: "47%",
+          maxWidth: "47%",
+          shadowColor: Colors.light.text,
+          shadowRadius: 16,
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          elevation: 1,
+        }}
+      >
+        <View>
+          <Ionicons name="card-outline" size={52} color={"red"} />
+        </View>
+        <ThemedText type="subtitle">N260,000.00</ThemedText>
+        <ThemedText>My Outstandings</ThemedText>
+      </Pressable>
+      <Pressable
         onPress={() => router.push("tokens")}
         style={{
           flex: 1,
           alignItems: "center",
           backgroundColor: Colors.light.tint,
           padding: 20,
-          rowGap: 8,
+          rowGap: 16,
           borderRadius: 16,
           flexBasis: "47%",
+          shadowColor: Colors.light.text,
+          shadowRadius: 16,
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          elevation: 1,
         }}
       >
         <View>
-          <Ionicons name="people" size={56} color={Colors.light.background} />
+          <Ionicons name="people" size={52} color={Colors.light.background} />
         </View>
-        <ThemedText>5</ThemedText>
-        <ThemedText>My Visitors</ThemedText>
+        <ThemedText type="subtitle">5</ThemedText>
+        <ThemedText type="default">My Visitors</ThemedText>
       </Pressable>
       <Pressable
         onPress={() => router.navigate("messages")}
@@ -43,34 +76,49 @@ export default function Index() {
           alignItems: "center",
           backgroundColor: Colors.light.tint,
           padding: 20,
-          rowGap: 8,
+          rowGap: 16,
           borderRadius: 16,
           flexBasis: "47%",
+          shadowColor: Colors.light.text,
+          shadowRadius: 16,
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          elevation: 1,
         }}
       >
         <View>
-          <Ionicons name="chatbox" size={56} color={"green"} />
+          <Ionicons name="chatbox" size={52} color={"green"} />
         </View>
-        <ThemedText>20</ThemedText>
+        <ThemedText type="subtitle">20</ThemedText>
         <ThemedText>Messages</ThemedText>
       </Pressable>
+
       <Pressable
-        onPress={() => router.navigate("outstandings")}
+        onPress={() => router.navigate("tokens")}
         style={{
           flex: 1,
           alignItems: "center",
           backgroundColor: Colors.light.tint,
           padding: 20,
-          rowGap: 8,
+          rowGap: 16,
           borderRadius: 16,
           flexBasis: "47%",
+          shadowColor: Colors.light.text,
+          shadowRadius: 16,
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          elevation: 1,
         }}
       >
         <View>
-          <Ionicons name="card-outline" size={56} color={"red"} />
+          <Ionicons name="key" size={52} color={"#333"} />
         </View>
-        <ThemedText>N0.00</ThemedText>
-        <ThemedText>My Outstandings</ThemedText>
+        <ThemedText type="subtitle">4</ThemedText>
+        <ThemedText>Tokens</ThemedText>
       </Pressable>
       <Pressable
         onPress={() => router.navigate("complaints")}
@@ -79,15 +127,27 @@ export default function Index() {
           alignItems: "center",
           backgroundColor: Colors.light.tint,
           padding: 20,
-          rowGap: 8,
+          rowGap: 16,
           borderRadius: 16,
           flexBasis: "47%",
+          maxWidth: "47%",
+          shadowColor: Colors.light.text,
+          shadowRadius: 16,
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          elevation: 1,
         }}
       >
         <View>
-          <Ionicons name="information-circle-outline" size={56} color={"gray"} />
+          <Ionicons
+            name="information-circle-outline"
+            size={52}
+            color={"gray"}
+          />
         </View>
-        <ThemedText>4</ThemedText>
+        <ThemedText type="subtitle">4</ThemedText>
         <ThemedText>Complaints</ThemedText>
       </Pressable>
     </ThemedView>

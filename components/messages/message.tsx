@@ -18,7 +18,7 @@ const Message = ({
     <Pressable
       onPress={onPress}
       style={{
-        flex: 1,
+        // flex: 1,
         backgroundColor: "#fff",
         marginVertical: 6,
         borderRadius: 8,
@@ -29,7 +29,7 @@ const Message = ({
         style={{
           fontSize: 15,
           fontWeight: 500,
-          color: "gray",
+          color: "#333",
           borderBottomWidth: 1,
           borderBottomColor: "#eeee",
           paddingVertical: 10,
