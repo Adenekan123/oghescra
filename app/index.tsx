@@ -95,7 +95,7 @@ export default function Index() {
         <ThemedText>Messages</ThemedText>
       </Pressable>
 
-      <Pressable
+      {/* <Pressable
         onPress={() => router.navigate("tokens")}
         style={{
           flex: 1,
@@ -119,7 +119,7 @@ export default function Index() {
         </View>
         <ThemedText type="subtitle">4</ThemedText>
         <ThemedText>Tokens</ThemedText>
-      </Pressable>
+      </Pressable> */}
       <Pressable
         onPress={() => router.navigate("complaints")}
         style={{

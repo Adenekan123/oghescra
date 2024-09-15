@@ -13,41 +13,42 @@ import { Colors } from "@/constants/Colors";
 const ComplaintForm = () => {
   return (
     <KeyboardAvoidingView>
-      <ThemedView style={{gap:20}}>
+      <ThemedView style={{ gap: 20 }}>
         <TextInput
           style={styles.input}
           keyboardType="default"
           placeholder="Subject"
         />
         <TextInput
-          style={[styles.input,{height:80,paddingTop:12}]}
+          style={[styles.input, { height: 80, paddingTop: 12 }]}
           keyboardType="default"
           placeholder="Write something here..."
           multiline
           textAlignVertical="top"
-          
         />
         <Pressable
           style={{
-            paddingVertical: 20,
+            paddingVertical: 16,
             backgroundColor: Colors.light.background,
-            borderRadius: 50,
+            borderRadius: 150,
             flexDirection: "row",
+            alignItems: "center",
             justifyContent: "center",
-            gap: 20,
+            gap: 8,
             marginTop: 20,
           }}
         >
-          <Ionicons name="save" size={22} color={"#fff"} />
           <ThemedText
             style={{
               color: "#fff",
               textAlign: "center",
               fontWeight: "bold",
+              fontSize:18
             }}
           >
             Submit
           </ThemedText>
+          <Ionicons name="send" size={18} color={"#fff"} />
         </Pressable>
       </ThemedView>
     </KeyboardAvoidingView>

@@ -36,14 +36,23 @@ const visitors: IVisitor[] = [
 ];
 
 const Token = () => {
-
-  const renderItem = useCallback(({item}:{item:IVisitor})=>{
-    return  <Visitor key={item.tokenID} visitor={item} />
-  },[]) 
+  const renderItem = useCallback(({ item }: { item: IVisitor }) => {
+    return <Visitor key={item.tokenID} visitor={item} />;
+  }, []);
   return (
-      <ThemedView style={{ flex: 1, rowGap: 14,paddingHorizontal: 16, paddingVertical: 24 }}>
-        <FlatList data={visitors} renderItem={renderItem} keyExtractor={(item)=>item.generated} />
-      </ThemedView>
+    <ThemedView
+      style={{
+        flex: 1,
+        paddingHorizontal: 16,
+        paddingVertical: 24,
+      }}
+    >
+      <FlatList
+        data={visitors}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.generated}
+      />
+    </ThemedView>
   );
 };
 

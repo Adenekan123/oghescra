@@ -3,6 +3,7 @@ import React from "react";
 import { ThemedView } from "../ThemedView";
 import { ThemedText } from "../ThemedText";
 import { Pressable } from "react-native";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const Message = ({
   message,
@@ -22,6 +23,13 @@ const Message = ({
         backgroundColor: "#fff",
         marginVertical: 6,
         borderRadius: 8,
+        shadowColor: Colors.light.text,
+        shadowRadius: 16,
+        shadowOffset: {
+          width: 0,
+          height: 4,
+        },
+        elevation: 1,
       }}
     >
       <ThemedText

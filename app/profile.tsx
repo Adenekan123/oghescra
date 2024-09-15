@@ -1,7 +1,7 @@
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Colors } from "@/constants/Colors";
-import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome, FontAwesome5, Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Pressable, ScrollView, View } from "react-native";
 
@@ -22,11 +22,15 @@ const Profile = () => {
           <ThemedText style={{ fontSize: 20, fontWeight: 500, marginTop: 8 }}>
             John Doe
           </ThemedText>
-          <View style={{ flexDirection: "row", alignItems: "center", gap:4 }}>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
             <ThemedText style={{ fontSize: 14, color: "grey" }}>
               Apartment:
             </ThemedText>
-            <ThemedText style={{ fontSize: 14, color: Colors.light.background }}>Flat</ThemedText>
+            <ThemedText
+              style={{ fontSize: 14, color: Colors.light.background }}
+            >
+              Flat
+            </ThemedText>
           </View>
         </ThemedView>
         <View
@@ -45,12 +49,13 @@ const Profile = () => {
               paddingHorizontal: 20,
             }}
           >
-            <ThemedText style={{fontSize:18, fontWeight:"bold"}}>ORA100000003</ThemedText>
-            <ThemedText style={{color:"grey",fontSize:14}}>Residence ID</ThemedText>
+            <ThemedText style={{ fontSize: 18, fontWeight: "bold" }}>
+              ORA100000003
+            </ThemedText>
+            <ThemedText style={{ color: "grey", fontSize: 14 }}>
+              Residence ID
+            </ThemedText>
           </View>
-         
-
-
         </View>
         <View
           style={{
@@ -113,12 +118,31 @@ const Profile = () => {
             />
             <ThemedText>0, Zone 1</ThemedText>
           </View>
-
-        
         </View>
-        <Pressable style={{marginTop:28}}>
-            <ThemedText style={{backgroundColor:Colors.light.background, color:"#fff", padding:16, textAlign:"center",borderRadius:16, fontWeight:"bold"}}>Sign out</ThemedText>
-          </Pressable>
+        <Pressable
+          style={{
+            flexDirection: "row",
+            gap: 8,
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: 28,
+            backgroundColor: Colors.light.background,
+            padding: 16,
+            borderRadius: 150,
+          }}
+        >
+          <ThemedText
+            style={{
+              color: "#fff",
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize:18,
+            }}
+          >
+            Sign out
+          </ThemedText>
+          <FontAwesome name="sign-out" size={18} color={"white"} />
+        </Pressable>
       </ScrollView>
     </ThemedView>
   );

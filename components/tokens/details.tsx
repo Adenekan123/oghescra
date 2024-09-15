@@ -58,7 +58,13 @@ const Details = ({ details }: { details: IVisitor }) => {
 
   return (
     <View style={{ gap: 24 }}>
-      <View style={{ backgroundColor: "#fff", borderRadius: 8 }}>
+      <View style={{ backgroundColor: "#fff", borderRadius: 8, shadowColor: Colors.light.text,
+          shadowRadius: 16,
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          elevation: 1, }}>
         <View
           style={{
             flexDirection: "row",

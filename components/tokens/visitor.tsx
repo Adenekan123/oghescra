@@ -20,8 +20,15 @@ const Visitor = ({ visitor }: { visitor: IVisitor }) => {
         backgroundColor: "#fff",
         paddingHorizontal: 8,
         paddingVertical: 12,
-        marginVertical:6,
-        borderRadius:8
+        marginBottom:16,
+        borderRadius:8,
+        shadowColor: Colors.light.text,
+        shadowRadius: 16,
+        shadowOffset: {
+          width: 0,
+          height: 4,
+        },
+        elevation: 1,
       }}
     >
       <ThemedView
@@ -33,10 +40,10 @@ const Visitor = ({ visitor }: { visitor: IVisitor }) => {
         }}
       >
         <ThemedView style={{ backgroundColor: "#fff" }}>
-          <Ionicons name="person-circle" size={56} />
+          <Ionicons name="person-circle" size={38}  />
         </ThemedView>
         <ThemedView style={{ backgroundColor: "#fff" }}>
-          <ThemedText style={{ fontSize: 14 }}>{visitorName}</ThemedText>
+          <ThemedText type="subtitle" style={{ fontSize: 14 }}>{visitorName}</ThemedText>
           <ThemedText style={{ fontSize: 14, color: "grey" }}>
             Token: {tokenID}
           </ThemedText>
@@ -45,11 +52,13 @@ const Visitor = ({ visitor }: { visitor: IVisitor }) => {
       <ThemedView style={{ backgroundColor: "#fff" }}>
         <ThemedText
           style={{
-            backgroundColor: status ? "red" : "green",
+            backgroundColor: status ? "black" : "green",
             color: "#fff",
             paddingHorizontal: 12,
-            paddingVertical: 4,
+            paddingVertical: 2,
             borderRadius: 50,
+            fontSize:12,
+            letterSpacing:1
           }}
         >
           {status}
