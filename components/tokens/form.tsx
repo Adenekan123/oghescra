@@ -44,13 +44,14 @@ const TokenForm = () => {
 
           <Pressable
             style={{
-              paddingVertical: 20,
+              paddingVertical: 16,
               backgroundColor: Colors.light.background,
-              borderRadius: 50,
-              flexDirection:"row",
-              justifyContent:"center",
-              gap:20,
-              marginTop:20
+              borderRadius: 150,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              marginTop: 20,
             }}
           >
             <Ionicons name="key" size={22} color={"#fff"} />
