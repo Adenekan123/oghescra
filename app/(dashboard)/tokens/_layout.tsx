@@ -12,7 +12,7 @@ export default function RootLayout() {
       initialRouteName="index"
       screenOptions={{
         headerStyle: {
-          backgroundColor: Colors.light.background,
+          backgroundColor: Colors.light.background,  
         },
         headerTintColor: Colors.light.tint,
         headerTitleAlign: "center",
@@ -37,7 +37,7 @@ export default function RootLayout() {
             </Link>
           ),
           headerLeft: () => (
-            <Pressable onPress={() => router.push("/")}>
+            <Pressable onPress={() => router.back()}>
               <Ionicons name="arrow-back" size={22} color={"#fff"} />
             </Pressable>
           ),

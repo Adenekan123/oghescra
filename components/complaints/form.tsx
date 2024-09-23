@@ -13,7 +13,7 @@ import { Colors } from "@/constants/Colors";
 const ComplaintForm = () => {
   return (
     <KeyboardAvoidingView>
-      <ThemedView style={{ gap: 20 }}>
+      <ThemedView style={{ gap: 32, paddingHorizontal:16 }}>
         <TextInput
           style={styles.input}
           keyboardType="default"
@@ -30,7 +30,7 @@ const ComplaintForm = () => {
           style={{
             paddingVertical: 16,
             backgroundColor: Colors.light.background,
-            borderRadius: 150,
+            borderRadius: 8,
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "center",

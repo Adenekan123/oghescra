@@ -43,7 +43,7 @@ const Token = () => {
     <ThemedView
       style={{
         flex: 1,
-        paddingHorizontal: 16,
+        paddingHorizontal: 22,
         paddingVertical: 24,
       }}
     >

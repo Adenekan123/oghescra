@@ -7,7 +7,7 @@ import { Pressable, ScrollView, View } from "react-native";
 
 const Profile = () => {
   return (
-    <ThemedView style={{ flex: 1, padding: 16 }}>
+    <ThemedView style={{ flex: 1, padding: 22 }}>
       <ScrollView style={{ flex: 1 }}>
         <ThemedView
           style={{
@@ -19,7 +19,7 @@ const Profile = () => {
           }}
         >
           <Ionicons name="person-circle-sharp" size={80} />
-          <ThemedText style={{ fontSize: 20, fontWeight: 500, marginTop: 8 }}>
+          <ThemedText type="subtitle" style={{marginTop: 8 }}>
             John Doe
           </ThemedText>
           <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
@@ -49,7 +49,7 @@ const Profile = () => {
               paddingHorizontal: 20,
             }}
           >
-            <ThemedText style={{ fontSize: 18, fontWeight: "bold" }}>
+            <ThemedText style={{ fontSize: 18, color:"#333", fontWeight: "bold" }}>
               ORA100000003
             </ThemedText>
             <ThemedText style={{ color: "grey", fontSize: 14 }}>

@@ -15,7 +15,7 @@ const TokenForm = () => {
   return (
     <KeyboardAvoidingView>
       <ScrollView>
-        <View style={{ flex: 1, justifyContent: "center", gap: 20 }}>
+        <View style={{ flex: 1, justifyContent: "center", gap: 32 }}>
           <TextInput
             keyboardType="default"
             style={styles.input}
@@ -46,7 +46,7 @@ const TokenForm = () => {
             style={{
               paddingVertical: 16,
               backgroundColor: Colors.light.background,
-              borderRadius: 150,
+              borderRadius: 8,
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "center",
@@ -74,7 +74,7 @@ const TokenForm = () => {
 const styles = StyleSheet.create({
   input: {
     backgroundColor: "#ffff",
-    height: 50,
+    height: 56,
     width: "100%",
     paddingHorizontal: 16,
     color: "#3333",

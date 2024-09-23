@@ -71,7 +71,7 @@ const Messages = () => {
  
   return (
     <ThemedView style={{flex:1}}>
-      <SafeAreaView style={{ flex: 1, padding: 16 }}>
+      <SafeAreaView style={{ flex: 1, padding: 22 }}>
         <FlatList
           data={myMessages}
           renderItem={renderItem}

@@ -23,7 +23,7 @@ export default function RootLayout() {
         options={{
           title: "Messages",
           headerLeft:()=>(
-              <Pressable onPress={()=> router.push("/")}>
+              <Pressable onPress={()=> router.back()}>
                 <Ionicons name="arrow-back" size={22} color={"#fff"} />
               </Pressable>
           )
