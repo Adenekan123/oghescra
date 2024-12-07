@@ -1,43 +1,47 @@
+import { IToken } from "@/api/tokens/types";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import Visitor from "@/components/tokens/visitor";
+import SingleToken from "@/components/tokens/singletoken";
+import Visitor from "@/components/tokens/singletoken";
+import { useTokenContext } from "@/context/token/useTokenContext";
 import { IVisitor } from "@/types";
 import React, { useCallback, useMemo } from "react";
-import { FlatList } from "react-native";
+import { ActivityIndicator, FlatList } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
-const visitors: IVisitor[] = [
-  {
-    tokenID: "hgfdsfgdc",
-    residentID: "jiytrerty",
-    residentName: "John Doe",
-    residentAddress: "lagos",
-    visitor: "Ebedi",
-    visitorEmail: "ebedi@gmail.com",
-    visitorNo: "089765432456",
-    reason: "Billing",
-    status: "unused",
-    active: 1,
-    generated: "2022",
-  },
-  {
-    tokenID: "iuyt5678",
-    residentID: "hgfd4356",
-    residentName: "John Doe",
-    residentAddress: "lagos",
-    visitor: "bunto",
-    visitorEmail: "bunto@gmail.com",
-    visitorNo: "089765432456",
-    reason: "grocceraies",
-    status: "unused",
-    active: 1,
-    generated: "2042",
-  },
-];
+// const visitors: IVisitor[] = [
+//   {
+//     tokenID: "hgfdsfgdc",
+//     residentID: "jiytrerty",
+//     residentName: "John Doe",
+//     residentAddress: "lagos",
+//     visitor: "Ebedi",
+//     visitorEmail: "ebedi@gmail.com",
+//     visitorNo: "089765432456",
+//     reason: "Billing",
+//     status: "unused",
+//     active: 1,
+//     generated: "2022",
+//   },
+//   {
+//     tokenID: "iuyt5678",
+//     residentID: "hgfd4356",
+//     residentName: "John Doe",
+//     residentAddress: "lagos",
+//     visitor: "bunto",
+//     visitorEmail: "bunto@gmail.com",
+//     visitorNo: "089765432456",
+//     reason: "grocceraies",
+//     status: "unused",
+//     active: 1,
+//     generated: "2042",
+//   },
+// ];
 
 const Token = () => {
-  const renderItem = useCallback(({ item }: { item: IVisitor }) => {
-    return <Visitor key={item.tokenID} visitor={item} />;
+  const { tokens, loading } = useTokenContext();
+  const renderItem = useCallback(({ item }: { item: IToken }) => {
+    return <SingleToken key={item.tokenId} token={item} />;
   }, []);
   return (
     <ThemedView
@@ -47,11 +51,15 @@ const Token = () => {
         paddingVertical: 24,
       }}
     >
-      <FlatList
-        data={visitors}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.generated}
-      />
+      {loading ? (
+        <ActivityIndicator size={26} color={"#111"} />
+      ) : (
+        <FlatList
+          data={tokens}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.tokenId as string}
+        />
+      )}
     </ThemedView>
   );
 };

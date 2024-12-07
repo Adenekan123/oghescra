@@ -6,12 +6,13 @@ import { Ionicons } from "@expo/vector-icons";
 import { ThemedText } from "../ThemedText";
 import { Link, router } from "expo-router";
 import { Pressable } from "react-native";
+import { IToken } from "@/api/tokens/types";
 
-const Visitor = ({ visitor }: { visitor: IVisitor }) => {
-  const { tokenID, visitor: visitorName, status } = visitor;
+const SingleToken = ({ token }: { token: IToken }) => {
+  const { tokenId, visitor: visitorName, status } = token;
   return (
     <Pressable
-      onPress={() => router.push(`tokens/details/${tokenID}`)}
+      onPress={() => router.push(`tokens/details/${tokenId}`)}
       style={{
         flex: 1,
         flexDirection: "row",
@@ -45,7 +46,7 @@ const Visitor = ({ visitor }: { visitor: IVisitor }) => {
         <ThemedView style={{ backgroundColor: "#fff" }}>
           <ThemedText type="subtitle" style={{ fontSize: 14 }}>{visitorName}</ThemedText>
           <ThemedText style={{ fontSize: 14, color: "grey" }}>
-            Token: {tokenID}
+            Token: {tokenId}
           </ThemedText>
         </ThemedView>
       </ThemedView>
@@ -68,4 +69,4 @@ const Visitor = ({ visitor }: { visitor: IVisitor }) => {
   );
 };
 
-export default Visitor;
+export default SingleToken;

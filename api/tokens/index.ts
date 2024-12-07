@@ -1,5 +1,3 @@
-import axios from "axios";
-import AxiosIntsnace from "../config";
 import { IAddToken, IToken } from "./types";
 
 const dummyTokens = [
@@ -43,10 +41,9 @@ const dummyTokens = [
 
 export const createToken = async (data: IAddToken): Promise<IToken> => {
   //   return (await AxiosIntsnace.post("/tokens", data)).data;
-  console.log(data);
   return await new Promise((resolve) => setTimeout(() => resolve( {
-    id: 1,
-    tokenId: "kjhgfdsrty",
+    id: new Date().getTime(),
+    tokenId: "dfghjhgfujyhg",
     visitor: data.visitorName,
     status: "unused",
     login: "0001-01-01T00:00:00",
@@ -54,7 +51,7 @@ export const createToken = async (data: IAddToken): Promise<IToken> => {
     generated: "2022",
     residentId: null,
     visitorNo: 2,
-    reason: null,
+    reason: data.reason,
     active: 0,
     visitorsEmail: data.visitorEmail,
     residentName: null,

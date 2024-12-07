@@ -1,28 +1,27 @@
 // import * as Clipboard from "expo-clipboard";
-import { IVisitor } from "@/types";
 import React, { useEffect, useMemo, useState } from "react";
 import { ThemedText } from "../ThemedText";
 import { Alert, Share, TouchableOpacity, View } from "react-native";
-import {
-  FontAwesome5,
-} from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
+import { IToken } from "@/api/tokens/types";
 
-const Details = ({ details }: { details: IVisitor }) => {
+const Details = ({ details }: { details: IToken }) => {
   const [copied, setCopied] = useState(false);
   const {
-    tokenID,
+    tokenId,
     visitor,
-    visitorEmail,
+    visitorsEmail,
     reason,
     visitorNo,
     status,
     generated,
-    loggedin,
-    loggedout,
   } = details;
 
-  const message = useMemo(()=>`Hi ${visitor}, your gatepass ID is *${tokenID}*`,[visitor,tokenID])
+  const message = useMemo(
+    () => `Hi ${visitor}, your gatepass ID is *${tokenId}*`,
+    [visitor, tokenId]
+  );
 
   // const copyToClipboard = async () => {
   //   await Clipboard.setStringAsync(message);
@@ -32,7 +31,7 @@ const Details = ({ details }: { details: IVisitor }) => {
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message
+        message,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -58,13 +57,19 @@ const Details = ({ details }: { details: IVisitor }) => {
 
   return (
     <View style={{ gap: 24 }}>
-      <View style={{ backgroundColor: "#fff", borderRadius: 8, shadowColor: Colors.light.text,
+      <View
+        style={{
+          backgroundColor: "#fff",
+          borderRadius: 8,
+          shadowColor: Colors.light.text,
           shadowRadius: 16,
           shadowOffset: {
             width: 0,
             height: 4,
           },
-          elevation: 1, }}>
+          elevation: 1,
+        }}
+      >
         <View
           style={{
             flexDirection: "row",
@@ -78,7 +83,7 @@ const Details = ({ details }: { details: IVisitor }) => {
           <ThemedText style={{ color: "grey", fontSize: 14, flexBasis: 100 }}>
             Token ID:
           </ThemedText>
-          <ThemedText style={{ fontSize: 16 }}>{tokenID}</ThemedText>
+          <ThemedText style={{ fontSize: 16 }}>{tokenId}</ThemedText>
         </View>
         <View
           style={{
@@ -108,7 +113,7 @@ const Details = ({ details }: { details: IVisitor }) => {
           <ThemedText style={{ color: "grey", fontSize: 14, flexBasis: 100 }}>
             Email:
           </ThemedText>
-          <ThemedText style={{ fontSize: 16 }}>{visitorEmail}</ThemedText>
+          <ThemedText style={{ fontSize: 16 }}>{visitorsEmail}</ThemedText>
         </View>
         <View
           style={{
@@ -169,7 +174,14 @@ const Details = ({ details }: { details: IVisitor }) => {
           <ThemedText style={{ fontSize: 16 }}>{generated}</ThemedText>
         </View>
       </View>
-      <View style={{flexDirection:"row",gap:16 , alignItems: "center", justifyContent:"center"}}>
+      <View
+        style={{
+          flexDirection: "row",
+          gap: 16,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <TouchableOpacity
           onPress={onShare}
           style={{

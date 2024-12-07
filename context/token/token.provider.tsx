@@ -2,7 +2,8 @@ import React, { ReactNode, useCallback, useEffect, useState } from "react";
 import { TokenContext } from "./token.context";
 import { IAddToken, IToken } from "@/api/tokens/types";
 import { createToken, getTokens } from "@/api/tokens";
-
+import Toast from "react-native-root-toast";
+import { router } from "expo-router";
 interface IProps {
   children: ReactNode;
 }
@@ -16,7 +17,15 @@ const TokenProvider = (props: IProps) => {
       setLoading(true);
       const token = await createToken(data);
       if (!token) throw new Error("Failed to create token");
+      Toast.show("Token created successfully.", {
+        duration: Toast.durations.LONG,
+        position:Toast.positions.TOP,
+        backgroundColor:"green",
+        textColor:"#fff"
+      });
       setTokens((prev) => [token, ...prev]);
+      router.back();
+
     } catch (err) {
       console.log(err);
     } finally {

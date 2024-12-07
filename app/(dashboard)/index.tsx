@@ -1,11 +1,13 @@
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Colors } from "@/constants/Colors";
+import { useTokenContext } from "@/context/token/useTokenContext";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { Pressable, View } from "react-native";
+import { ActivityIndicator, Pressable, View } from "react-native";
 
 export default function Index() {
+  const {tokens,loading} = useTokenContext();
   return (
     <ThemedView
       style={{
@@ -66,7 +68,7 @@ export default function Index() {
         <View>
           <Ionicons name="people" size={52} color={Colors.light.background} />
         </View>
-        <ThemedText type="subtitle">5</ThemedText>
+        <ThemedText type="subtitle">{loading ? <ActivityIndicator/> : tokens.length}</ThemedText>
         <ThemedText type="default">My Visitors</ThemedText>
       </Pressable>
       <Pressable

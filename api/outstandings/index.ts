@@ -6,7 +6,7 @@ export const getTotalOtstandings = async (): Promise<ITotalOutstandings[]> => {
 };
 export const getOtstandingBalanace = async (
   residentialId: string
-): Promise<[IOutstandingBalance] | undefined> => {
+): Promise<IOutstandingBalance[] | undefined> => {
   if (!residentialId) return;
   return (
     await AxiosIntsnace.get(
