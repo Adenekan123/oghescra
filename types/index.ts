@@ -14,9 +14,3 @@ export interface IVisitor {
   loggedout?: string;
 }
 
-export interface IMessage {
-  messageID: number;
-  residentID: string;
-  visitorName: string;
-  message:string;
-}
