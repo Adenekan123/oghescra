@@ -1,8 +1,6 @@
 export interface IMessage {
   subject: string;
   message: string;
-  outStandingBal: number;
-  status: string;
-  residentID: string;
+  status: number;
   id: number;
 }

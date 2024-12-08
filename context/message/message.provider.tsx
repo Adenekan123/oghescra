@@ -3,6 +3,13 @@ import { MessageContext } from "./message.context";
 import { getInbox, readInbox } from "@/api/messages";
 import { IMessage } from "@/api/messages/types";
 
+function dummyReadInbox (messages:IMessage[], mesId:string) {
+  const message = messages.find((message) => String(message.id) === mesId);
+  console.log({messages,mesId});
+  if (!message) return;
+  return {...message, status: 1};
+}
+
 interface IProps {
   children: ReactNode;
 }
@@ -18,8 +25,10 @@ const MessageProvider = (props: IProps) => {
     async (residentialId: string, mesId: string) => {
       if (!residentialId || !mesId) return;
       try {
-        setLoading(true);
-        const message = await readInbox(residentialId, mesId);
+        // setLoading(true);
+        
+        // const message = await readInbox(residentialId, mesId);
+        const message =  dummyReadInbox(messages, mesId);
         if (!message) throw new Error("Failed to read message");
         const newMessages = messages.map((m) =>
           m.id == message.id ? message : m
@@ -27,11 +36,13 @@ const MessageProvider = (props: IProps) => {
         setMessages(newMessages);
       } catch (err) {
         console.log(err);
+        return false
       } finally {
-        setLoading(false);
+        // setLoading(false);
+        return true
       }
     },
-    []
+    [messages,dummyReadInbox]
   );
   const getMessages = useCallback(async (residentialId: string) => {
     if (!residentialId) return;
@@ -49,7 +60,7 @@ const MessageProvider = (props: IProps) => {
 
   useEffect(()=>{
     getMessages(residentialId);
-  },[residentialId]);
+  },[getMessages]);
   return (
     <MessageContext.Provider
       value={{ messages, setMessages, readMessageAync, loading }}

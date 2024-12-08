@@ -1,69 +1,30 @@
-import { ThemedText } from "@/components/ThemedText";
+import { IMessage } from "@/api/messages/types";
 import { ThemedView } from "@/components/ThemedView";
 import Message from "@/components/messages/message";
-import { IMessage } from "@/types";
-import { router, useNavigation } from "expo-router";
-import React, { useCallback, useEffect } from "react";
+import { useMessageContext } from "@/context/message/useMessageContext";
+import { router } from "expo-router";
+import React, { useCallback, useMemo } from "react";
 import { FlatList, SafeAreaView } from "react-native";
 
-const myMessages: IMessage[] = [
-  {
-    messageID: 1,
-    residentID: "ytfrewrtgh",
-    visitorName: "James",
-    message: `Your expected visitor(s) (James) has been let into your Estate/GRA and should be with you shortly`,
-  },
-  {
-    messageID: 2,
-    residentID: "fgdswwefr",
-    visitorName: "Wood",
-    message: `Your expected visitor(s) (Wood) has been let into your Estate/GRA and should be with you shortly`,
-  },
-  {
-    messageID: 3,
-    residentID: "ytrefrghf",
-    visitorName: "Kyle",
-    message: `Your expected visitor(s) (JamKylees) has been let into your Estate/GRA and should be with you shortly`,
-  },
-  {
-    messageID: 4,
-    residentID: "lkjhgfdghj",
-    visitorName: "Jolie",
-    message: `Your expected visitor(s) (Jolie) has been let into your Estate/GRA and should be with you shortly`,
-  },
-  {
-    messageID: 5,
-    residentID: "jhgfdfghj",
-    visitorName: "Kunle",
-    message: `Your expected visitor(s) (Kunle) has been let into your Estate/GRA and should be with you shortly`,
-  },
-  {
-    messageID: 6,
-    residentID: "lkjhgfdghj",
-    visitorName: "Funke",
-    message: `Your expected visitor(s) (Funke) has been let into your Estate/GRA and should be with you shortly`,
-  },
-  {
-    messageID: 7,
-    residentID: "mnbvcvfgh",
-    visitorName: "Maryam",
-    message: `Your expected visitor(s) (Maryam) has been let into your Estate/GRA and should be with you shortly`,
-  },
-  {
-    messageID: 8,
-    residentID: "iuytrefgh",
-    visitorName: "Luka",
-    message: `Your expected visitor(s) (Luka) has been let into your Estate/GRA and should be with you shortly`,
-  }
-];
+
 
 const Messages = () => {
+  const {messages,readMessageAync} = useMessageContext();
+
+  const residentialId = useMemo(() => "1", []);
+
+  const onRead = useCallback(async (residentialId: string, mesId: string) => {
+    if (!residentialId || !mesId) return;
+    const isRead = await readMessageAync(residentialId, mesId);
+    if(isRead) router.push(`/messages/details/${mesId}`);
+  }, []);
+
   const renderItem = useCallback(({ item }: { item: IMessage }) => {
     return (
       <Message
-        key={item.messageID}
+        key={item.id}
         message={item}
-        onPress={() => router.push(`messages/details/${item.messageID}`)}
+        onPress={()=>onRead(residentialId, item.id+"")}
       />
     );
   }, []);
@@ -73,9 +34,9 @@ const Messages = () => {
     <ThemedView style={{flex:1}}>
       <SafeAreaView style={{ flex: 1, padding: 22 }}>
         <FlatList
-          data={myMessages}
+          data={messages}
           renderItem={renderItem}
-          keyExtractor={(item) => item.visitorName}
+          keyExtractor={(item) => item.id as unknown as string}
         />
       </SafeAreaView>
     </ThemedView>
