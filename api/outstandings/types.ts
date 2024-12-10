@@ -1,4 +1,4 @@
-export interface ITotalOutstandings {
+export interface IOutstanding {
   dueType: string;
   billAmount: number;
   outStandingBal: number;

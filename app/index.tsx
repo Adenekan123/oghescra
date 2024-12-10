@@ -1,14 +1,13 @@
 import SigninForm from "@/components/auth/signin";
 import { ThemedView } from "@/components/ThemedView";
-import { Colors } from "@/constants/Colors";
-import { StatusBar } from "expo-status-bar";
-
+import { View } from "react-native";
 
 export default function Index() {
   return (
     <ThemedView style={{ flex: 1, justifyContent: "center", padding: 16 }}>
-      <SigninForm />
-      <StatusBar style="light" backgroundColor={Colors.light.background} />
+      <View style={{ flex: 1, marginTop:'35%' }}>
+        <SigninForm />
+      </View>
     </ThemedView>
   );
 }

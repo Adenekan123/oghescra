@@ -1,10 +1,10 @@
 import AxiosIntsnace from "../config";
-import { IOutstandingBalance, ITotalOutstandings } from "./types";
+import { IOutstanding, IOutstandingBalance } from "./types";
 
-export const getTotalOtstandings = async (): Promise<ITotalOutstandings[]> => {
+export const getOutstandings = async (): Promise<IOutstanding[]> => {
   return (await AxiosIntsnace.get("/bills/allbills")).data;
 };
-export const getOtstandingBalanace = async (
+export const getBalanace = async (
   residentialId: string
 ): Promise<IOutstandingBalance[] | undefined> => {
   if (!residentialId) return;

@@ -28,7 +28,7 @@ const ComplaintForm = () => {
         />
         <Pressable
           style={{
-            paddingVertical: 16,
+            paddingVertical: 14,
             backgroundColor: Colors.light.background,
             borderRadius: 8,
             flexDirection: "row",

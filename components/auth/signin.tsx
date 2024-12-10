@@ -6,6 +6,8 @@ import {
   Pressable,
   KeyboardAvoidingView,
   Platform,
+  Image,
+  View,
 } from "react-native";
 import { ThemedText } from "../ThemedText";
 import { Colors } from "@/constants/Colors";
@@ -13,10 +15,26 @@ import { router } from "expo-router";
 
 const SigninForm = () => {
   return (
-    <KeyboardAvoidingView  behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <ThemedView style={{ gap: 56, paddingHorizontal: 16 }}>
-        <ThemedText type="title">Sign In</ThemedText>
-        <ThemedView style={{ gap: 8 }}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ThemedView style={{ gap: 32, paddingHorizontal: 16 }}>
+        <View style={{gap:6, marginBottom: 32}}>
+          <Image
+            source={require("@/assets/images/react-logo.png")}
+            style={{ height: 80, width: 80, marginHorizontal: "auto" }}
+            resizeMode="contain"
+          />
+          <ThemedText
+            type="subtitle"
+            style={{ color: Colors.light.background, textAlign: "center" }}
+          >
+            Oghescra Signin
+          </ThemedText>
+        </View>
+
+        {/* <ThemedText type="subtitle">Sign In</ThemedText> */}
+        <ThemedView style={{ gap: 10 }}>
           <ThemedText type="defaultSemiBold">Username</ThemedText>
           <TextInput
             style={styles.input}
@@ -24,7 +42,7 @@ const SigninForm = () => {
             placeholder="Subject"
           />
         </ThemedView>
-        <ThemedView style={{ gap: 8 }}>
+        <ThemedView style={{ gap: 10 }}>
           <ThemedText type="defaultSemiBold">Password</ThemedText>
           <TextInput
             secureTextEntry
@@ -35,9 +53,9 @@ const SigninForm = () => {
         </ThemedView>
 
         <Pressable
-         onPress={()=>router.push('/(dashboard)')}
+          onPress={() => router.push("/(dashboard)")}
           style={{
-            paddingVertical: 18,
+            paddingVertical: 16,
             backgroundColor: Colors.light.background,
             borderRadius: 8,
             flexDirection: "row",
@@ -54,7 +72,7 @@ const SigninForm = () => {
               fontWeight: "bold",
               // fontSize: 18,
               textTransform: "uppercase",
-              letterSpacing:1
+              letterSpacing: 1,
             }}
           >
             Sign In
