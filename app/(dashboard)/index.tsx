@@ -4,7 +4,7 @@ import { Colors } from "@/constants/Colors";
 import { useMessageContext } from "@/context/message/useMessageContext";
 import { useOutstandingContext } from "@/context/outstandings/useOutstandingContext";
 import { useTokenContext } from "@/context/token/useTokenContext";
-import { Ionicons } from "@expo/vector-icons";
+import { Entypo, Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useMemo } from "react";
 import { ActivityIndicator, Pressable, View } from "react-native";
@@ -27,7 +27,7 @@ export default function Index() {
         alignItems: "center",
         justifyContent: "flex-start",
         padding: 20,
-        gap: 20,
+        gap: 12,
       }}
     >
       <Pressable
@@ -40,7 +40,7 @@ export default function Index() {
           rowGap: 16,
           borderRadius: 16,
           flexBasis: "47%",
-          maxWidth: "47%",
+          // maxWidth: "47%",
           shadowColor: Colors.light.text,
           shadowRadius: 16,
           shadowOffset: {
@@ -69,6 +69,7 @@ export default function Index() {
           rowGap: 16,
           borderRadius: 16,
           flexBasis: "47%",
+          // maxWidth: "47%",
           shadowColor: Colors.light.text,
           shadowRadius: 16,
           shadowOffset: {
@@ -94,6 +95,7 @@ export default function Index() {
           rowGap: 16,
           borderRadius: 16,
           flexBasis: "47%",
+          // maxWidth: "47%",
           shadowColor: Colors.light.text,
           shadowRadius: 16,
           shadowOffset: {
@@ -104,37 +106,11 @@ export default function Index() {
         }}
       >
         <View>
-          <Ionicons name="chatbox" size={52} color={"green"} />
+          <Entypo name="chat" size={52} color={"green"} />
         </View>
         <ThemedText type="subtitle">{messagesLoading ? <ActivityIndicator color={Colors.light.background}/> : messages.length}</ThemedText>
         <ThemedText>Messages</ThemedText>
       </Pressable>
-
-      {/* <Pressable
-        onPress={() => router.navigate("tokens")}
-        style={{
-          flex: 1,
-          alignItems: "center",
-          backgroundColor: Colors.light.tint,
-          padding: 20,
-          rowGap: 16,
-          borderRadius: 16,
-          flexBasis: "47%",
-          shadowColor: Colors.light.text,
-          shadowRadius: 16,
-          shadowOffset: {
-            width: 0,
-            height: 4,
-          },
-          elevation: 1,
-        }}
-      >
-        <View>
-          <Ionicons name="key" size={52} color={"#333"} />
-        </View>
-        <ThemedText type="subtitle">4</ThemedText>
-        <ThemedText>Tokens</ThemedText>
-      </Pressable> */}
       <Pressable
         onPress={() => router.navigate("complaints")}
         style={{
@@ -145,7 +121,7 @@ export default function Index() {
           rowGap: 16,
           borderRadius: 16,
           flexBasis: "47%",
-          maxWidth: "47%",
+          // maxWidth: "47%",
           shadowColor: Colors.light.text,
           shadowRadius: 16,
           shadowOffset: {
