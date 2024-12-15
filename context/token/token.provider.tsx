@@ -19,7 +19,7 @@ const TokenProvider = (props: IProps) => {
       if (!token) throw new Error("Failed to create token");
       Toast.show("Token created successfully.", {
         duration: Toast.durations.LONG,
-        position:Toast.positions.TOP,
+        position:Toast.positions.BOTTOM,
         backgroundColor:"green",
         textColor:"#fff"
       });

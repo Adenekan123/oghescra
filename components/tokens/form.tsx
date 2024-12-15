@@ -12,6 +12,7 @@ import { ThemedText } from "../ThemedText";
 import { Ionicons } from "@expo/vector-icons";
 import { useTokenContext } from "@/context/token/useTokenContext";
 import { IAddToken } from "@/api/tokens/types";
+import { ThemedTextInput } from "../ThemedTextInput";
 
 const TokenForm = () => {
   const [input, setInput] = useState<IAddToken>({
@@ -30,37 +31,32 @@ const TokenForm = () => {
     <KeyboardAvoidingView>
       <ScrollView>
         <View style={{ flex: 1, justifyContent: "center", gap: 32 }}>
-          <TextInput
+          <ThemedTextInput
             keyboardType="default"
-            style={styles.input}
             placeholder="Visitor's Name"
             value={input.visitorName}
             onChangeText={(e) => handleInputChange("visitorName", e)}
           />
-          <TextInput
+          <ThemedTextInput
             keyboardType="phone-pad"
-            style={styles.input}
             placeholder="Visitor's Phone Number"
             value={input.visitorPhone}
             onChangeText={(e) => handleInputChange("visitorPhone", e)}
           />
-          <TextInput
+          <ThemedTextInput
             keyboardType="email-address"
-            style={styles.input}
             placeholder="Visitor's Email (optional)"
             value={input.visitorEmail}
             onChangeText={(e) => handleInputChange("visitorEmail", e)}
           />
-          <TextInput
+          <ThemedTextInput
             keyboardType="default"
-            style={styles.input}
             placeholder="Purpose of Visiting"
             value={input.reason}
             onChangeText={(e) => handleInputChange("reason", e)}
           />
-          <TextInput
+          <ThemedTextInput
             keyboardType="numeric"
-            style={styles.input}
             placeholder="Number of Visitor(s)"
             value={input.visitorNo as unknown as string}
             onChangeText={(e) => handleInputChange("visitorNo", e)}
@@ -99,17 +95,6 @@ const TokenForm = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  input: {
-    backgroundColor: "#ffff",
-    height: 56,
-    width: "100%",
-    paddingHorizontal: 16,
-    color: "#111",
-    borderWidth: 1,
-    borderColor: "#c084fc",
-    borderRadius: 8,
-  },
-});
+
 
 export default TokenForm;

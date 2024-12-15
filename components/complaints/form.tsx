@@ -9,16 +9,16 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { ThemedText } from "../ThemedText";
 import { Colors } from "@/constants/Colors";
+import { ThemedTextInput } from "../ThemedTextInput";
 
 const ComplaintForm = () => {
   return (
     <KeyboardAvoidingView>
       <ThemedView style={{ gap: 32, paddingHorizontal:16 }}>
-        <TextInput
-          style={styles.input}
+       
+        <ThemedTextInput   
           keyboardType="default"
-          placeholder="Subject"
-        />
+          placeholder="Subject" />
         <TextInput
           style={[styles.input, { height: 80, paddingTop: 12 }]}
           keyboardType="default"
@@ -26,6 +26,7 @@ const ComplaintForm = () => {
           multiline
           textAlignVertical="top"
         />
+          
         <Pressable
           style={{
             paddingVertical: 14,

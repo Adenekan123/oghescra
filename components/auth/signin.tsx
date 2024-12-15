@@ -12,6 +12,7 @@ import {
 import { ThemedText } from "../ThemedText";
 import { Colors } from "@/constants/Colors";
 import { router } from "expo-router";
+import { ThemedTextInput } from "../ThemedTextInput";
 
 const SigninForm = () => {
   return (
@@ -19,7 +20,7 @@ const SigninForm = () => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <ThemedView style={{ gap: 32, paddingHorizontal: 16 }}>
-        <View style={{gap:6, marginBottom: 32}}>
+        <View style={{ gap: 6, marginBottom: 32 }}>
           <Image
             source={require("@/assets/images/react-logo.png")}
             style={{ height: 80, width: 80, marginHorizontal: "auto" }}
@@ -36,17 +37,16 @@ const SigninForm = () => {
         {/* <ThemedText type="subtitle">Sign In</ThemedText> */}
         <ThemedView style={{ gap: 10 }}>
           <ThemedText type="defaultSemiBold">Username</ThemedText>
-          <TextInput
-            style={styles.input}
+          <ThemedTextInput
             keyboardType="default"
             placeholder="Subject"
           />
         </ThemedView>
         <ThemedView style={{ gap: 10 }}>
           <ThemedText type="defaultSemiBold">Password</ThemedText>
-          <TextInput
+
+          <ThemedTextInput
             secureTextEntry
-            style={styles.input}
             keyboardType="default"
             placeholder="Password"
           />
@@ -83,17 +83,5 @@ const SigninForm = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  input: {
-    backgroundColor: "#ffff",
-    width: "100%",
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    color: "#3333",
-    borderWidth: 1,
-    borderColor: "#c084fc",
-    borderRadius: 8,
-  },
-});
 
 export default SigninForm;
