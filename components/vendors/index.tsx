@@ -1,28 +1,36 @@
+import React from "react";
 import { ThemedText } from "../ThemedText";
 import { Pressable, View } from "react-native";
 import { Colors } from "../../constants/Colors";
 import { IOutstanding } from "@/api/outstandings/types";
 import { Ionicons } from "@expo/vector-icons";
 
-
-
 interface IProps {
   outstanding: IOutstanding;
 }
 const Outstanding = (props: IProps) => {
-  const { dueType, billAmount, billDate } = props.outstanding;
+  const { dueType, billAmount, billDate, status } = props.outstanding;
   return (
     <View
       style={{
-        flex: 1,
+        // flex: 1,
         flexDirection: "row",
-        alignItems:"center",
         justifyContent: "space-between",
-       
+        backgroundColor: Colors.light.tint,
+        paddingVertical: 6,
+        marginVertical: 6,
+        borderRadius: 8,
+        shadowColor: Colors.light.text,
+        shadowRadius: 16,
+        shadowOffset: {
+          width: 0,
+          height: 4,
+        },
+        elevation: 1,
       }}
     >
       <View style={{}}>
-      <ThemedText
+        <ThemedText
           numberOfLines={1}
           style={{
             fontSize: 15,
@@ -45,14 +53,16 @@ const Outstanding = (props: IProps) => {
         </ThemedText>
       </View>
 
+      <Pressable style={{paddingVertical:4,paddingHorizontal:8,flexDirection:"row", alignItems:"center", gap:6}}>
         <ThemedText
           style={{
             color: "red",
-            fontWeight:500
           }}
         >
           N{billAmount.toLocaleString("en", { minimumFractionDigits: 2 })}
         </ThemedText>
+        <Ionicons name="chevron-forward" size={16} color={"red"} />
+      </Pressable>
     </View>
   );
 };

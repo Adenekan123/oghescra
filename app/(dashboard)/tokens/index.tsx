@@ -1,13 +1,9 @@
 import { IToken } from "@/api/tokens/types";
-import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import SingleToken from "@/components/tokens/singletoken";
-import Visitor from "@/components/tokens/singletoken";
 import { useTokenContext } from "@/context/token/useTokenContext";
-import { IVisitor } from "@/types";
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback } from "react";
 import { ActivityIndicator, FlatList } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
 
 // const visitors: IVisitor[] = [
 //   {

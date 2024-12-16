@@ -8,7 +8,7 @@ export interface IOutstanding {
   username: string;
   transdate: string;
   residentID: string;
-  status: true;
+  status: boolean;
 }
 export interface IOutstandingBalance {
   balance: 0;
